@@ -1,16 +1,44 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { ChapterIntro } from "@/components/chapters/ChapterIntro";
+import { ChapterJourney } from "@/components/chapters/ChapterJourney";
+import { ChapterInvitation } from "@/components/chapters/ChapterInvitation";
+import { ChapterCountdown } from "@/components/chapters/ChapterCountdown";
+import { ChapterGallery } from "@/components/chapters/ChapterGallery";
+import { ChapterTheDay } from "@/components/chapters/ChapterTheDay";
+import { ChapterRSVP } from "@/components/chapters/ChapterRSVP";
+import { ChapterFinale } from "@/components/chapters/ChapterFinale";
+import { Atmosphere } from "@/components/Atmosphere";
+import { MusicToggle } from "@/components/MusicToggle";
+import { useEffect } from "react";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  useEffect(() => {
+    document.title = "Amelia & Julian — A Cinematic Wedding Invitation";
+    const desc = document.querySelector('meta[name="description"]');
+    const content = "Join Amelia & Julian on 14 September 2026 at Villa Belmonte, Lake Como — a cinematic wedding invitation.";
+    if (desc) desc.setAttribute("content", content);
+    else {
+      const m = document.createElement("meta");
+      m.name = "description";
+      m.content = content;
+      document.head.appendChild(m);
+    }
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main className="relative bg-ivory text-charcoal overflow-x-hidden">
+      <Atmosphere />
+      <MusicToggle />
+
+      <ChapterIntro />
+      <ChapterJourney />
+      <ChapterInvitation />
+      <ChapterCountdown />
+      <ChapterGallery />
+      <ChapterTheDay />
+      <ChapterRSVP />
+      <ChapterFinale />
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
