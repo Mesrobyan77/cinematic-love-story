@@ -39,7 +39,7 @@ export const MusicToggle = () => {
   return (
     <button
       onClick={toggle}
-      aria-label={playing ? "Pause music" : "Play music"}
+      aria-label={playing ? "Դադարեցնել երաժշտությունը" : "Միացնել երաժշտությունը"}
       className={`fixed bottom-6 right-6 z-50 glass-panel rounded-full w-14 h-14 flex items-center justify-center text-charcoal hover:text-gold transition-all duration-700 ease-cinema ${shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${playing ? "animate-pulse-glow" : ""}`}
     >
       {playing ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}

@@ -5,23 +5,23 @@ import { useScrollProgress } from "@/hooks/use-reveal";
 const events = [
   {
     time: "16:00",
-    title: "Ceremony",
-    place: "Villa Belmonte · Garden Pavilion",
-    desc: "Vows beneath an arch of white peonies, as the lake catches the late afternoon light.",
+    title: "Պսակադրություն",
+    place: "Վիլլա Բելմոնտե · Այգու Տաղավար",
+    desc: "Երդումներ սպիտակ քաջվարդերի կամարի տակ, երբ լիճը արտացոլում է կեսօրվա լույսը։",
     Icon: Heart,
   },
   {
     time: "18:30",
-    title: "Reception",
-    place: "The Grand Terrace",
-    desc: "Champagne, candlelight, and a six-course dinner overlooking the water.",
+    title: "Ընդունելություն",
+    place: "Գլխավոր Պատշգամբ",
+    desc: "Շամպայն, մոմի լույս և վեց ուտեստից բաղկացած ընթրիք՝ ջրի դիմաց։",
     Icon: Sparkles,
   },
   {
     time: "21:00",
-    title: "Celebration",
-    place: "The Ballroom",
-    desc: "Live orchestra, first dance, and dancing until the stars fade.",
+    title: "Տոնակատարություն",
+    place: "Բանկետային Դահլիճ",
+    desc: "Կենդանի նվագախումբ, առաջին պար և պարեր մինչև աստղերի մարելը։",
     Icon: Music,
   },
 ];
@@ -36,9 +36,9 @@ export const ChapterTheDay = () => {
   return (
     <section ref={ref} className="relative py-32 md:py-48 px-6 bg-gradient-to-b from-ivory via-ivory-deep to-ivory overflow-hidden">
       <header className="text-center mb-20">
-        <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">CHAPTER · 06</p>
-        <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">The Day</h2>
-        <p className="font-script text-gold text-2xl">a roadmap of joy</p>
+        <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">ԳԼՈՒԽ · 06</p>
+        <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">Մեծ Օրը</h2>
+        <p className="font-script text-gold text-2xl">ուրախության ճանապարհային քարտեզ</p>
       </header>
 
       <div className="relative max-w-3xl mx-auto">

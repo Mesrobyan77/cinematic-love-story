@@ -7,12 +7,12 @@ import j2 from "@/assets/journey-2.jpg";
 import j3 from "@/assets/journey-3.jpg";
 
 const items = [
-  { src: g2, span: "md:row-span-2", caption: "golden hour" },
-  { src: g1, span: "", caption: "in bloom" },
-  { src: g4, span: "", caption: "candlelight" },
-  { src: g3, span: "md:row-span-2", caption: "promise" },
-  { src: j3, span: "", caption: "the question" },
-  { src: j2, span: "", caption: "laughter" },
+  { src: g2, span: "md:row-span-2", caption: "ոսկե ժամ" },
+  { src: g1, span: "", caption: "ծաղկման մեջ" },
+  { src: g4, span: "", caption: "մոմի լույս" },
+  { src: g3, span: "md:row-span-2", caption: "խոստում" },
+  { src: j3, span: "", caption: "հարցը" },
+  { src: j2, span: "", caption: "ծիծաղ" },
 ];
 
 const Tile = ({ it, i }: { it: typeof items[number]; i: number }) => {
@@ -42,9 +42,9 @@ export const ChapterGallery = () => {
     <section className="relative py-32 md:py-48 px-6 bg-ivory">
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-20">
-          <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">CHAPTER · 05</p>
-          <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">The Gallery</h2>
-          <p className="font-script text-gold text-2xl">moments framed in light</p>
+          <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">ԳԼՈՒԽ · 05</p>
+          <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">Պատկերասրահ</h2>
+          <p className="font-script text-gold text-2xl">ակնթարթներ՝ լույսի շրջանակում</p>
         </header>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 auto-rows-[200px] md:auto-rows-[260px]">
           {items.map((it, i) => <Tile key={i} it={it} i={i} />)}

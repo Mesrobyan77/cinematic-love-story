@@ -32,21 +32,21 @@ export const ChapterIntro = () => {
 
       <div className="relative z-10 text-center px-6 max-w-4xl">
         <p className="font-serif-light tracking-[0.5em] text-ivory/90 text-xs md:text-sm mb-8 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          CHAPTER · 01
+          ԳԼՈՒԽ · 01
         </p>
         <p className="font-script text-gold-glow text-2xl md:text-3xl mb-6 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-          how it started
+          ինչպես ամեն ինչ սկսվեց
         </p>
         <h1 className="font-display text-ivory text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] text-balance">
-          <span className="inline-block animate-letter-in" style={{ animationDelay: "1.2s" }}>Amelia</span>
+          <span className="inline-block animate-letter-in" style={{ animationDelay: "1.2s" }}>Ամելիա</span>
           <span className="block font-serif-light italic text-3xl md:text-5xl my-3 text-gold-glow animate-letter-in" style={{ animationDelay: "1.6s" }}>
-            &amp;
+            և
           </span>
-          <span className="inline-block animate-letter-in" style={{ animationDelay: "2s" }}>Julian</span>
+          <span className="inline-block animate-letter-in" style={{ animationDelay: "2s" }}>Ջուլիան</span>
         </h1>
         <div className="mt-10 animate-fade-up" style={{ animationDelay: "2.6s" }}>
           <span className="ornament-line font-serif-light text-ivory/80 text-sm tracking-[0.4em] uppercase">
-            A Love Film
+            Սիրո Ֆիլմ
           </span>
         </div>
       </div>
@@ -54,7 +54,7 @@ export const ChapterIntro = () => {
       {/* Scroll cue */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-fade-up" style={{ animationDelay: "3s" }}>
         <div className="flex flex-col items-center gap-3 text-ivory/70">
-          <span className="font-serif-light text-xs tracking-[0.4em] uppercase">Scroll</span>
+          <span className="font-serif-light text-xs tracking-[0.4em] uppercase">Ոլորել</span>
           <div className="w-px h-14 bg-gradient-to-b from-ivory/80 to-transparent" />
         </div>
       </div>

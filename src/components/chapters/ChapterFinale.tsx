@@ -9,26 +9,25 @@ export const ChapterFinale = () => {
       style={{ background: "linear-gradient(180deg, hsl(var(--ivory-soft)) 0%, hsl(25 15% 12%) 100%)" }}
     >
       <div className={`relative z-10 text-center max-w-3xl reveal reveal-slow ${visible ? "is-visible" : ""}`}>
-        <p className="font-serif-light tracking-[0.5em] text-gold/80 text-xs mb-8">FINAL SCENE</p>
+        <p className="font-serif-light tracking-[0.5em] text-gold/80 text-xs mb-8">ՎԵՐՋԻՆ ՏԵՍԱՐԱՆ</p>
         <h2 className="font-display text-ivory text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight">
-          And so, the story
-          <span className="block italic text-gold-glow font-serif-light">begins.</span>
+          Եվ այսպես, պատմությունը
+          <span className="block italic text-gold-glow font-serif-light">սկսվում է։</span>
         </h2>
 
         <div className="my-12 ornament-line">
-          <span className="font-script text-gold-glow text-3xl">A &amp; J</span>
+          <span className="font-script text-gold-glow text-3xl">Ա և Ջ</span>
         </div>
 
         <p className="font-serif-light italic text-ivory/70 text-xl md:text-2xl leading-relaxed max-w-xl mx-auto">
-          With love, gratitude, and endless light — thank you for being a part of our chapter.
+          Սիրով, երախտագիտությամբ և անսահման լույսով՝ շնորհակալ ենք, որ մեր գլխի մի մասն եք։
         </p>
 
         <p className="mt-16 font-serif-light tracking-[0.5em] uppercase text-ivory/40 text-[10px]">
-          Fin · 14 . 09 . 2026
+          Վերջ · 14 . 09 . 2026
         </p>
       </div>
 
-      {/* soft bottom dissolve */}
       <div className="absolute inset-0 bg-gradient-vignette pointer-events-none" />
     </section>
   );
