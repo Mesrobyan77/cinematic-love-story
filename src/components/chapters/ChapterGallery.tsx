@@ -20,14 +20,14 @@ const Tile = ({ it, i }: { it: typeof items[number]; i: number }) => {
   return (
     <div
       ref={ref}
-      className={`group relative overflow-hidden rounded-sm shadow-soft cursor-pointer ${it.span} reveal`}
+      className={`group relative overflow-hidden rounded-sm shadow-soft cursor-pointer bg-ivory-deep ${it.span} reveal is-visible`}
       style={{ transitionDelay: `${(i % 4) * 0.12}s` }}
     >
       <img
         src={it.src}
         alt={it.caption}
         loading="lazy"
-        className="w-full h-full object-cover transition-all duration-[2200ms] ease-cinema group-hover:scale-110 group-hover:brightness-110"
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-[2200ms] ease-cinema group-hover:scale-110 group-hover:brightness-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-1000 ease-cinema" />
       <div className="absolute bottom-5 left-5 right-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-700 ease-cinema">
