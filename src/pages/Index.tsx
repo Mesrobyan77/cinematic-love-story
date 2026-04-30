@@ -12,9 +12,9 @@ import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Amelia & Julian — A Cinematic Wedding Invitation";
+    document.title = "Ամելիա և Ջուլիան — Կինեմատոգրաֆիկ Հարսանյաց Հրավեր";
     const desc = document.querySelector('meta[name="description"]');
-    const content = "Join Amelia & Julian on 14 September 2026 at Villa Belmonte, Lake Como — a cinematic wedding invitation.";
+    const content = "Միացե՛ք Ամելիային և Ջուլիանին 2026 թվականի սեպտեմբերի 14-ին Վիլլա Բելմոնտեում, Կոմո լիճ — կինեմատոգրաֆիկ հարսանյաց հրավեր:";
     if (desc) desc.setAttribute("content", content);
     else {
       const m = document.createElement("meta");

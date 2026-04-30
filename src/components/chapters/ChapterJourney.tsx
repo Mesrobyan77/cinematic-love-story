@@ -4,9 +4,9 @@ import j2 from "@/assets/journey-2.jpg";
 import j3 from "@/assets/journey-3.jpg";
 
 const moments = [
-  { year: "2019", title: "First Glance", text: "A rainy afternoon in a quiet café. Two strangers, one shared umbrella, and the start of everything.", img: j1, align: "left" },
-  { year: "2021", title: "Becoming Us", text: "Late dinners, long conversations, and the realisation that home was no longer a place — but a person.", img: j2, align: "right" },
-  { year: "2024", title: "The Promise", text: "On a cliff above the ocean, between sunlight and silence, one question changed everything.", img: j3, align: "left" },
+  { year: "2019", title: "Առաջին Հայացքը", text: "Անձրևոտ կեսօր հանգիստ սրճարանում։ Երկու անծանոթ, մեկ ընդհանուր հովանոց, և ամեն ինչի սկիզբը։", img: j1, align: "left" },
+  { year: "2021", title: "Դառնալով Մենք", text: "Ուշ ընթրիքներ, երկար զրույցներ և գիտակցումը, որ տունն այլևս վայր չէ, այլ՝ մարդ։", img: j2, align: "right" },
+  { year: "2024", title: "Խոստումը", text: "Օվկիանոսի վրա բարձրացող ժայռի վրա, արևի լույսի և լռության միջև, մեկ հարց փոխեց ամեն ինչ։", img: j3, align: "left" },
 ];
 
 const Moment = ({ m, i }: { m: typeof moments[number]; i: number }) => {
@@ -45,9 +45,9 @@ export const ChapterJourney = () => {
     <section className="relative py-32 md:py-48 px-6 bg-ivory">
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-24">
-          <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">CHAPTER · 02</p>
-          <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">Our Journey</h2>
-          <p className="font-script text-gold text-2xl">a story written in moments</p>
+          <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">ԳԼՈՒԽ · 02</p>
+          <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">Մեր Ճանապարհը</h2>
+          <p className="font-script text-gold text-2xl">պատմություն՝ գրված ակնթարթներով</p>
         </header>
         <div className="space-y-32 md:space-y-48">
           {moments.map((m, i) => <Moment key={m.year} m={m} i={i} />)}

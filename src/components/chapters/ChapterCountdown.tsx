@@ -33,15 +33,15 @@ export const ChapterCountdown = () => {
     <section ref={ref} className="relative py-32 md:py-48 px-6 bg-ivory-deep overflow-hidden">
       <div className="absolute inset-0 bg-gradient-focus opacity-40" aria-hidden />
       <div className={`relative max-w-5xl mx-auto text-center reveal ${visible ? "is-visible" : ""}`}>
-        <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">CHAPTER · 04</p>
-        <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">The Countdown</h2>
-        <p className="font-script text-gold text-2xl mb-16">until we say "I do"</p>
+        <p className="font-serif-light tracking-[0.5em] text-charcoal-mute text-xs mb-4">ԳԼՈՒԽ · 04</p>
+        <h2 className="font-display text-5xl md:text-7xl text-charcoal mb-4">Հետհաշվարկ</h2>
+        <p className="font-script text-gold text-2xl mb-16">մինչև մեր «Այո»-ն</p>
 
         <div className="flex justify-center gap-3 md:gap-6 flex-wrap">
-          <Cell value={t.d} label="Days" />
-          <Cell value={t.h} label="Hours" />
-          <Cell value={t.m} label="Minutes" />
-          <Cell value={t.s} label="Seconds" />
+          <Cell value={t.d} label="Օր" />
+          <Cell value={t.h} label="Ժամ" />
+          <Cell value={t.m} label="Րոպե" />
+          <Cell value={t.s} label="Վայրկյան" />
         </div>
       </div>
     </section>
