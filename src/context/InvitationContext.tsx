@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { useLocation } from "react-router-dom";
 
 // The default data that the template uses when no live preview data is sent
 const DEFAULT_DATA = {
@@ -55,33 +56,79 @@ const DEFAULT_DATA = {
 
 type InvitationContextType = {
   data: typeof DEFAULT_DATA;
+  loading: boolean;
+  error: string | null;
 };
 
-const InvitationContext = createContext<InvitationContextType>({ data: DEFAULT_DATA });
+const InvitationContext = createContext<InvitationContextType>({ 
+  data: DEFAULT_DATA, 
+  loading: false, 
+  error: null 
+});
 
 export const InvitationProvider = ({ children }: { children: ReactNode }) => {
   const [data, setData] = useState(DEFAULT_DATA);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // useLocation is inside BrowserRouter so it's safe to use
+  const location = useLocation();
 
   useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      // The admin panel sends { type: "UPDATE_PREVIEW", payload: { ... } }
-      if (event.data?.type === "UPDATE_PREVIEW" && event.data.payload) {
-        // Deep merge or simply replace data. 
-        // We replace it but fallback to defaults for deeply nested objects if needed.
-        // For simplicity, we just merge the top level
-        setData((prev) => ({
-          ...prev,
-          ...event.data.payload,
-        }));
-      }
-    };
+    // Check if the URL is /:slug/:date
+    const pathParts = location.pathname.split("/").filter(Boolean);
+    
+    // If we have 2 parts (slug and date) -> Fetch from Backend
+    if (pathParts.length >= 2) {
+      const slug = pathParts[0];
+      const dateSlug = pathParts[1];
+      const apiUrl = import.meta.env.VITE_API_URL || "https://backend.amorete.am"; // Fallback URL
+      
+      setLoading(true);
+      fetch(`${apiUrl}/api/invitations/${slug}/${dateSlug}`)
+        .then(res => {
+          if (!res.ok) throw new Error("Invitation not found");
+          return res.json();
+        })
+        .then(resData => {
+          // If the backend wraps the response in { success: true, data: {...} }
+          const inviteData = resData.data ? resData.data : resData;
+          setData((prev) => ({ ...prev, ...inviteData }));
+        })
+        .catch(err => {
+          console.error(err);
+          setError("Հրավիրատոմսը չի գտնվել");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      // We are in the root / (Demo mode)
+      // Listen to postMessage for Live Preview
+      const handleMessage = (event: MessageEvent) => {
+        if (event.data?.type === "UPDATE_PREVIEW" && event.data.payload) {
+          setData((prev) => ({
+            ...prev,
+            ...event.data.payload,
+          }));
+        }
+      };
 
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, []);
+      window.addEventListener("message", handleMessage);
+      return () => window.removeEventListener("message", handleMessage);
+    }
+  }, [location.pathname]);
+
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center bg-ivory text-charcoal font-display">Բեռնվում է...</div>;
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center bg-ivory text-charcoal font-display">{error}</div>;
+  }
 
   return (
-    <InvitationContext.Provider value={{ data }}>
+    <InvitationContext.Provider value={{ data, loading, error }}>
       {children}
     </InvitationContext.Provider>
   );
