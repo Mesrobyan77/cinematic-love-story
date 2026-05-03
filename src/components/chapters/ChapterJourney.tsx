@@ -1,15 +1,10 @@
+import { useInvitation } from "@/context/InvitationContext";
 import { useReveal } from "@/hooks/use-reveal";
 import j1 from "@/assets/journey-1.jpg";
 import j2 from "@/assets/journey-2.jpg";
 import j3 from "@/assets/journey-3.jpg";
 
-const moments = [
-  { year: "2019", title: "Առաջին Հայացքը", text: "Անձրևոտ կեսօր հանգիստ սրճարանում։ Երկու անծանոթ, մեկ ընդհանուր հովանոց, և ամեն ինչի սկիզբը։", img: j1, align: "left" },
-  { year: "2021", title: "Դառնալով Մենք", text: "Ուշ ընթրիքներ, երկար զրույցներ և գիտակցումը, որ տունն այլևս վայր չէ, այլ՝ մարդ։", img: j2, align: "right" },
-  { year: "2024", title: "Խոստումը", text: "Օվկիանոսի վրա բարձրացող ժայռի վրա, արևի լույսի և լռության միջև, մեկ հարց փոխեց ամեն ինչ։", img: j3, align: "left" },
-];
-
-const Moment = ({ m, i }: { m: typeof moments[number]; i: number }) => {
+const Moment = ({ m, i }: { m: any; i: number }) => {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const isLeft = m.align === "left";
   return (
@@ -41,6 +36,16 @@ const Moment = ({ m, i }: { m: typeof moments[number]; i: number }) => {
 };
 
 export const ChapterJourney = () => {
+  const { data } = useInvitation();
+  
+  const galleryImages = data.gallery || [];
+  
+  const moments = [
+    { year: "2019", title: "Առաջին Հայացքը", text: "Անձրևոտ կեսօր հանգիստ սրճարանում։ Երկու անծանոթ, մեկ ընդհանուր հովանոց, և ամեն ինչի սկիզբը։", img: (galleryImages[0] as any)?.src || j1, align: "left" },
+    { year: "2021", title: "Դառնալով Մենք", text: "Ուշ ընթրիքներ, երկար զրույցներ և գիտակցումը, որ տունն այլևս վայր չէ, այլ՝ մարդ։", img: (galleryImages[1] as any)?.src || j2, align: "right" },
+    { year: "2024", title: "Խոստումը", text: "Օվկիանոսի վրա բարձրացող ժայռի վրա, արևի լույսի և լռության միջև, մեկ հարց փոխեց ամեն ինչ։", img: (galleryImages[2] as any)?.src || j3, align: "left" },
+  ];
+
   return (
     <section className="relative py-32 md:py-48 px-6 bg-ivory">
       <div className="max-w-6xl mx-auto">

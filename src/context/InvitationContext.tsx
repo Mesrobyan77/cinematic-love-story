@@ -22,11 +22,23 @@ const DEFAULT_DATA = {
     "music": true,
     "calendar": true,
     "countdown": true
-  }
+  },
+  "gallery": [] as { src: string; note?: string }[]
 };
 
 type InvitationContextType = {
-  data: typeof DEFAULT_DATA;
+  data: typeof DEFAULT_DATA & {
+    gallery?: { src: string; note?: string }[];
+    calendar?: {
+      monthName?: string;
+      year?: number;
+      weddingDay?: number;
+    };
+    event?: {
+      ceremony?: { time?: string; place?: string; address?: string };
+      reception?: { time?: string; place?: string; address?: string };
+    };
+  };
   loading: boolean;
   error: string | null;
 };
