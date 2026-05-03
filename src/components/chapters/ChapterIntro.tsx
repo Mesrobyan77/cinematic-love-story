@@ -1,12 +1,17 @@
 import heroImg from "@/assets/hero.jpg";
 import { useScrollProgress } from "@/hooks/use-reveal";
+import { useInvitation } from "@/context/InvitationContext";
 
 export const ChapterIntro = () => {
+  const { data } = useInvitation();
   const { ref, progress } = useScrollProgress<HTMLElement>();
   // parallax on background
   const translateY = progress * 120;
   const scale = 1 + progress * 0.08;
   const overlay = 0.35 + progress * 0.4;
+
+  // Use couplePhoto if provided in the dynamic data, otherwise default heroImg
+  const backgroundImage = data.couplePhoto || heroImg;
 
   return (
     <section ref={ref} className="relative h-[100svh] overflow-hidden flex items-center justify-center">
@@ -15,7 +20,7 @@ export const ChapterIntro = () => {
         style={{ transform: `translate3d(0, ${translateY}px, 0) scale(${scale})`, transition: "transform 0.1s linear" }}
       >
         <img
-          src={heroImg}
+          src={backgroundImage}
           alt="Cinematic portrait of the couple at golden hour"
           className="w-full h-full object-cover ken-burns"
           width={1920}
@@ -35,18 +40,18 @@ export const ChapterIntro = () => {
           ԳԼՈՒԽ · 01
         </p>
         <p className="font-script text-gold-glow text-2xl md:text-3xl mb-6 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-          ինչպես ամեն ինչ սկսվեց
+          {data.couple.title}
         </p>
         <h1 className="font-display text-ivory text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] text-balance">
-          <span className="inline-block animate-letter-in" style={{ animationDelay: "1.2s" }}>Ամելիա</span>
+          <span className="inline-block animate-letter-in" style={{ animationDelay: "1.2s" }}>{data.couple.bride}</span>
           <span className="block font-serif-light italic text-3xl md:text-5xl my-3 text-gold-glow animate-letter-in" style={{ animationDelay: "1.6s" }}>
             և
           </span>
-          <span className="inline-block animate-letter-in" style={{ animationDelay: "2s" }}>Ջուլիան</span>
+          <span className="inline-block animate-letter-in" style={{ animationDelay: "2s" }}>{data.couple.groom}</span>
         </h1>
         <div className="mt-10 animate-fade-up" style={{ animationDelay: "2.6s" }}>
           <span className="ornament-line font-serif-light text-ivory/80 text-sm tracking-[0.4em] uppercase">
-            Սիրո Ֆիլմ
+            {data.couple.subtitle}
           </span>
         </div>
       </div>
